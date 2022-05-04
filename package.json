@@ -1,7 +1,7 @@
 {
-  "name": "keepalive-react-component",
-  "version": "1.0.0",
-  "description": "实现react的组件缓存",
+  "name": "react-component-keepalive-ts",
+  "version": "1.0.4",
+  "description": "cache React Components",
   "main": "index.ts",
   "keywords": [
     "react",
@@ -18,8 +18,8 @@
     "react-dom": "18.0.0",
     "react-router-dom": "^6.3.0"
   },
-  "repository": "https://github.com/zhangrenyang/keepalive-react-component",
-  "author": "zhangrenyang",
+  "repository": "https://github.com/ShowMeTheCodePLZ/keepalive-react-component",
+  "author": "LuoWei",
   "license": "MIT",
   "devDependencies": {
     "@types/react": "^18.0.5",
