@@ -1,0 +1,28 @@
+{
+  "name": "keepalive-react-component",
+  "version": "1.0.0",
+  "description": "实现react的组件缓存",
+  "main": "index.ts",
+  "keywords": [
+    "react",
+    "react-router",
+    "react-router-dom",
+    "keepAlive",
+    "react hooks"
+  ],
+  "peerDependencies": {
+    "react": ">=17.0.0"
+  },
+  "dependencies": {
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-router-dom": "^6.3.0"
+  },
+  "repository": "https://github.com/zhangrenyang/keepalive-react-component",
+  "author": "zhangrenyang",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.0.5",
+    "@types/react-dom": "^18.0.1"
+  }
+}
