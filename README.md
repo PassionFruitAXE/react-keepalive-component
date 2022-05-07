@@ -1,14 +1,10 @@
 # React Component KeepAlive
 
-
-
 ## Getting Started
 
 ```shell
 npm i react-component-keepalive-ts
 ```
-
-
 
 ## How to use it
 
@@ -21,6 +17,8 @@ Components that need to cache state are passed in through `withKeepAlive(Compone
 This function returns the same new Component.
 
 Now your component can be cached!
+
+You can also export a cacheDestroy function from the props of the new component. Function accepts a cacheId to destroy the cache.
 
 Example:
 
@@ -49,3 +47,17 @@ const Router = () => {
 };
 ```
 
+```tsx
+import React from "react";
+
+const Home = (props: any) => {
+  return (
+    <div>
+      <button onClick={props.cacheDestroy("UserList")}>重置UserList</button>
+      <button onClick={props.cacheDestroy("UserAdd")}>重置UserAdd</button>
+    </div>
+  );
+};
+
+export default Home;
+```

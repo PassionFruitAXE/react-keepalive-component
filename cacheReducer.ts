@@ -1,7 +1,7 @@
 import CacheType from "./cache-type";
 import { Action, CacheState } from "./global";
 
-const cacheReducer = (cacheStates: CacheState, action: Action) => {
+const cacheReducer = (cacheStates: CacheState, action: Action): CacheState => {
   const { cacheId, reactElement, doms } = action.payload;
   switch (action.type) {
     case CacheType.CREATE:
@@ -12,6 +12,7 @@ const cacheReducer = (cacheStates: CacheState, action: Action) => {
           reactElement,
           doms: undefined,
           status: CacheType.CREATE,
+          scrolls: {},
         },
       };
     case CacheType.CREATED:
@@ -21,6 +22,14 @@ const cacheReducer = (cacheStates: CacheState, action: Action) => {
           ...cacheStates[cacheId],
           doms: doms,
           status: CacheType.CREATED,
+        },
+      };
+    case CacheType.DESTROY:
+      return {
+        ...cacheStates,
+        [cacheId]: {
+          ...cacheStates[cacheId],
+          status: CacheType.DESTROY,
         },
       };
     default:
