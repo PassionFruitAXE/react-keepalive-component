@@ -53,8 +53,8 @@ import React from "react";
 const Home = (props: any) => {
   return (
     <div>
-      <button onClick={props.cacheDestroy("UserList")}>重置UserList</button>
-      <button onClick={props.cacheDestroy("UserAdd")}>重置UserAdd</button>
+      <button onClick={props.cacheDestroy("about")}>重置about</button>
+      <button onClick={props.cacheDestroy("home")}>重置home</button>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 {
   "name": "react-component-keepalive-ts",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "cache React Components",
   "main": "index.ts",
   "keywords": [
