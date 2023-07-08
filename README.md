@@ -8,13 +8,21 @@ npm i react-component-keepalive-ts
 
 ## How to use it
 
-package export default `KeepAliveProvider` `withKeepAlive`
+package export default `KeepaliveProvider` `withKeepAlive` `KeepaliveItem` `useCacheDestroy`
 
-Wrap `keepAliveProvider` around it.
+Wrap `keepaliveProvider` around it.
 
-Components that need to cache state are passed in through `withKeepAlive(Component)`.
+Components that need to cache state are passed in through `withKeepalive(Component, cacheId)`
 
 This function returns the same new Component.
+
+or use 
+
+```tsx
+<KeepaliveItem cacheId={"cache"}>
+    <Item/>
+<KeepaliveItem/>
+```
 
 Now your component can be cached!
 
@@ -23,39 +31,36 @@ You can also export a cacheDestroy function from the props of the new component.
 Example:
 
 ```tsx
-import home form "./views/Home";
-import about form "./views/About";
-import { withKeepAlive, KeepAliveProvider } from "react-component-keepalive-ts";
-
-const About = withKeepAlive(about);
-const Home = withKeepAlive(home);
-
-const routers = [
-  {
-    path: "/about",
-    element: <About />,
-  },
-  {
-    path: "/home",
-    element: <Home />,
-  },
-];
-
-const Router = () => {
-  const element = useRoutes(routers);
-  return <KeepAliveProvider>{element}</KeepAliveProvider>;
-};
-```
-
-```tsx
 import React from "react";
+import { KeepaliveProvider, KeepaliveItem, withKeepalive, useCacheDestroy } from "react-component-keepalive-ts"
+
+const Item = () => (
+   <div>
+      <h2>Hello<h2/>
+      <button onClick={cacheDestroy("cache")}>重置about</button>
+    </div>
+)
+
+
+const CacheItem = () => (
+  <KeepaliveItem cacheId={"cache"}>
+    <Item/>
+  <KeepaliveItem/>
+)
+
+// or
+
+const CacheItem = withKeepalive({
+  Component: Item,
+  cacheId: "cache"
+})
 
 const Home = (props: any) => {
+  const cacheDestroy = useCacheDestroy();
   return (
-    <div>
-      <button onClick={props.cacheDestroy("about")}>重置about</button>
-      <button onClick={props.cacheDestroy("home")}>重置home</button>
-    </div>
+    <KeepaliveProvider>
+      <CacheItem/>
+    </KeepaliveProvider>
   );
 };
 

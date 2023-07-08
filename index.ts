@@ -1,2 +1,6 @@
-export {default as KeepAliveProvider} from "./KeepAliveProvider";
-export {default as withKeepAlive} from "./withKeepAlive";
+import KeepaliveItem from "./components/KeepAliveItem";
+import withKeepalive from "./components/withKeepAlive";
+import { KeepaliveProvider } from "./store/Keepalive";
+import { useCacheDestroy } from "./hooks/useCacheDestroy";
+
+export { KeepaliveProvider, KeepaliveItem, withKeepalive, useCacheDestroy };
